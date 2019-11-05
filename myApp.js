@@ -8,16 +8,15 @@ var app = express();
 // --> 11)  Mount the body-parser middleware  here
 
 
-console.log("Hello world");
+//console.log("Hello world");
 
 
 
-app.get("/", function(req, res){
+/*app.get("/", function(req, res){
     res.sendfile(__dirname + '/views/index.html');
-  });
-  
+  });*/
 
-/** 4) Serve static assets  */
+  app.use(express.static(__dirname + '/public'));
 
 
 /** 5) serve JSON on a specific route */
