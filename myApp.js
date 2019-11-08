@@ -16,10 +16,12 @@ var app = express();
     res.sendfile(__dirname + '/views/index.html');
   });*/
 
-  app.use(express.static(__dirname + '/public'));
+//  app.use(express.static(__dirname + '/public'));
 
 
-/** 5) serve JSON on a specific route */
+app.get("/Json",function(req, res){
+  res.json({"message": "Hello json"});
+});
 
 
 /** 6) Use the .env file to configure the app */
