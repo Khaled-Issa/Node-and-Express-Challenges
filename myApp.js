@@ -59,6 +59,11 @@ app.route('/name').get(function(req,res){
   res.send({"name": firstname + " "+lastname});
 });
 
+app.post('/name',function(req,res){
+  var firstname=req.body.first;
+  var lastname=req.body.last;
+  res.send({"name": firstname + " "+lastname});
+});
  
 
   
