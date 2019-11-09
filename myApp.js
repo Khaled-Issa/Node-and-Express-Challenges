@@ -19,16 +19,19 @@ var app = express();
 //  app.use(express.static(__dirname + '/public'));
 
 
-app.get("/json",function(req, res){
+/** app.get("/json",function(req, res){
   if(process.env.MESSAGE_STYLE=="uppercase"){
     res.json({"message": "HELLO JSON"});
   }
   res.json({"message": "Hello json"});
-});
+}); */
 
 
 /** 7) Root-level Middleware - A logger */
-//  place it before all the routes !
+app.get('/json', function(req, res, next){
+  console.log(`${req.method} ${req.path} - ${req.ip}`);
+  next();
+});
 
 
 /** 8) Chaining middleware. A Time server */
