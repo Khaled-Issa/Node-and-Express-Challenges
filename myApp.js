@@ -45,18 +45,20 @@ function(req,res){
 
 
 
-/** 9)  Get input from client - Route parameters */
-app.get('/:word/echo',function(req, res, next){
-  req.params.word;
-  next();
-},
-  function(req,res){
-    res.send({echo: word});
-  
-});
+/** 9)  Get input from client - Route parameters 
+app.get('/:word/echo',function(req,res){
+  res.send({echo: req.params.word});
+}); */
 
 /** 10) Get input from client - Query parameters */
 // /name?first=<firstname>&last=<lastname>
+app.route('/name').get(function(req,res){
+ 
+    var firstname = req.query.first;
+    var lastname = req.query.last;
+  res.send({"name": firstname + " "+lastname});
+});
+ 
 
   
 /** 11) Get ready for POST Requests - the `body-parser` */
